@@ -1,4 +1,4 @@
-package no.hvl.dat108;
+package no.hvl.dat108.oblig1.opg3;
 import java.util.function.*;
 
 public class Opg3Ansatt {
