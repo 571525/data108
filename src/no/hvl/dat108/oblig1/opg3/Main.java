@@ -29,7 +29,7 @@ public class Main {
 		// endre lønn med fast prosentdel
 		double økPros = 1.1;
 		liste.get(3).endreLønn(lønn -> (int) (lønn * økPros));
-		
+
 		System.out.println("Opdatert liste:");
 		for (Ansatt a : liste) {
 			System.out.println(a);
