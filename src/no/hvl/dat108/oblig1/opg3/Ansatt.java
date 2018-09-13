@@ -1,7 +1,7 @@
 package no.hvl.dat108.oblig1.opg3;
 import java.util.function.*;
 
-public class Opg3Ansatt {
+public class Ansatt {
 	
 	private Kjønn kjønn;	
 	private String fornavn;
@@ -9,7 +9,7 @@ public class Opg3Ansatt {
 	private String stilling;
 	private int lønn;
 	
-public Opg3Ansatt(String fornavn, String etternavn, Kjønn kjønn, String stilling, int lønn) {
+public Ansatt(String fornavn, String etternavn, Kjønn kjønn, String stilling, int lønn) {
 	this.fornavn = fornavn;
 	this.etternavn = etternavn;
 	this.kjønn = kjønn;
@@ -62,7 +62,7 @@ public void endreLønn(Function<Integer, Integer> funktion) {
 }
 
 
-public static boolean sjekkGrense(Opg3Ansatt a, SjekkLønn sjekkLønn) {
+public static boolean sjekkGrense(Ansatt a, SjekkLønn sjekkLønn) {
 	return sjekkLønn.sjekk(a.getLønn());
 }
 

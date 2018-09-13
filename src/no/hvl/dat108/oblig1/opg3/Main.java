@@ -3,15 +3,15 @@ package no.hvl.dat108.oblig1.opg3;
 import java.util.Arrays;
 import java.util.List;
 
-public class Opg3Main {
+public class Main {
 
 	public static void main(String[] args) {
-		List<Opg3Ansatt> liste = Arrays.asList(new Opg3Ansatt("Bo", "Bosen", Kjønn.MANN, "Sjef", 25000),
-				new Opg3Ansatt("Ana", "Anesen", Kjønn.KVINNE, "assistent", 15000),
-				new Opg3Ansatt("Poul", "Poulsen", Kjønn.MANN, "Klovn", 12000),
-				new Opg3Ansatt("Kristen", "Kristensen", Kjønn.KVINNE, "Marketing", 45000));
+		List<Ansatt> liste = Arrays.asList(new Ansatt("Bo", "Bosen", Kjønn.MANN, "Sjef", 25000),
+				new Ansatt("Ana", "Anesen", Kjønn.KVINNE, "assistent", 15000),
+				new Ansatt("Poul", "Poulsen", Kjønn.MANN, "Klovn", 12000),
+				new Ansatt("Kristen", "Kristensen", Kjønn.KVINNE, "Marketing", 45000));
 
-		for (Opg3Ansatt a : liste) {
+		for (Ansatt a : liste) {
 			System.out.println(a);
 		}
 		System.out.println();
@@ -22,8 +22,8 @@ public class Opg3Main {
 
 		// endre lønn med fast beløp hvis lønnen er under 16000
 		int minLønn = 16000;
-		for (Opg3Ansatt a : liste) {
-			if (Opg3Ansatt.sjekkGrense(a, lønn -> lønn < minLønn)) {
+		for (Ansatt a : liste) {
+			if (Ansatt.sjekkGrense(a, lønn -> lønn < minLønn)) {
 				a.endreLønn(lønn -> lønn + beløp);
 			}
 		}
@@ -33,7 +33,7 @@ public class Opg3Main {
 		liste.get(3).endreLønn(lønn -> (int) (lønn * økPros));
 		
 		System.out.println("Opdatert liste:");
-		for (Opg3Ansatt a : liste) {
+		for (Ansatt a : liste) {
 			System.out.println(a);
 		}
 
