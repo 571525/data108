@@ -76,6 +76,4 @@ public String toString() {
 	return "Opg3Ansatt [fornavn=" + fornavn + ", etternavn=" + etternavn + ", kjønn= " + kjønn + ", stilling=" + stilling
 			+ ", lønn=" + lønn + "]";
 }
-//test
 }
-
