@@ -1,0 +1,81 @@
+package no.hvl.dat108;
+import java.util.function.*;
+
+public class Opg3Ansatt {
+	
+	private Kjønn kjønn;	
+	private String fornavn;
+	private String etternavn;
+	private String stilling;
+	private int lønn;
+	
+public Opg3Ansatt(String fornavn, String etternavn, Kjønn kjønn, String stilling, int lønn) {
+	this.fornavn = fornavn;
+	this.etternavn = etternavn;
+	this.kjønn = kjønn;
+	this.stilling = stilling;
+	this.lønn = lønn;
+}
+
+public String getFornavn() {
+	return fornavn;
+}
+
+public void setFornavn(String fornavn) {
+	this.fornavn = fornavn;
+}
+
+public String getEtternavn() {
+	return etternavn;
+}
+
+public void setEtternavn(String etternavn) {
+	this.etternavn = etternavn;
+}
+
+public String getStilling() {
+	return stilling;
+}
+
+public void setStilling(String stilling) {
+	this.stilling = stilling;
+}
+
+public int getLønn() {
+	return lønn;
+}
+
+public void setLønn(int lønn) {
+	this.lønn = lønn;
+}
+
+public Kjønn getKjønn() {
+	return kjønn;
+}
+
+public void setKjønn(Kjønn kjønn) {
+	this.kjønn = kjønn;
+}
+
+public void endreLønn(Function<Integer, Integer> funktion) {
+	lønn = funktion.apply(lønn);
+}
+
+
+public static boolean sjekkGrense(Opg3Ansatt a, SjekkLønn sjekkLønn) {
+	return sjekkLønn.sjekk(a.getLønn());
+}
+
+@FunctionalInterface
+interface SjekkLønn {
+	boolean sjekk(int lønn);
+}
+
+@Override
+public String toString() {
+	return "Opg3Ansatt [fornavn=" + fornavn + ", etternavn=" + etternavn + ", kjønn= " + kjønn + ", stilling=" + stilling
+			+ ", lønn=" + lønn + "]";
+}
+
+}
+
