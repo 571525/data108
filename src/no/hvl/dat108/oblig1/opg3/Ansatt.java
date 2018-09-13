@@ -66,6 +66,7 @@ public static boolean sjekkGrense(Ansatt a, SjekkLønn sjekkLønn) {
 	return sjekkLønn.sjekk(a.getLønn());
 }
 
+//Kunne evt ha brukt Predicate<T>
 @FunctionalInterface
 interface SjekkLønn {
 	boolean sjekk(int lønn);
