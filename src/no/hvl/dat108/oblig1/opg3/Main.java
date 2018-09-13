@@ -17,15 +17,13 @@ public class Main {
 		System.out.println();
 
 		// endre lønn med fast beløp å lige til.
-		int beløp = 2000;
-		liste.get(0).endreLønn(lønn -> lønn + beløp);
+		int økMed = 2000;
+		liste.get(0).endreLønn(lønn -> lønn + økMed);
 
 		// endre lønn med fast beløp hvis lønnen er under 16000
-		int minLønn = 16000;
+		int lønnGrense = 16000;
 		for (Ansatt a : liste) {
-			if (Ansatt.sjekkGrense(a, lønn -> lønn < minLønn)) {
-				a.endreLønn(lønn -> lønn + beløp);
-			}
+			a.endreLønn(Ansatt.økLønnUnderGrense(a.getLønn(), lønnGrense, økMed));
 		}
 
 		// endre lønn med fast prosentdel

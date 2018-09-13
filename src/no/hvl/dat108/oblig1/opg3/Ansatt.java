@@ -62,13 +62,16 @@ public void endreLønn(Function<Integer, Integer> funktion) {
 }
 
 
-public static boolean sjekkGrense(Ansatt a, SjekkLønn sjekkLønn) {
-	return sjekkLønn.sjekk(a.getLønn());
-}
+public static Function<Integer, Integer> økLønnUnderGrense(int lønn, int lønnGrense, int øk) {
+	if (lønn < lønnGrense) {
+		return i -> i + øk;
+	}
+	return i -> i;
+} 
 
 //Kunne evt ha brukt Predicate<T>
 @FunctionalInterface
-interface SjekkLønn {
+interface Betingelse {
 	boolean sjekk(int lønn);
 }
 
