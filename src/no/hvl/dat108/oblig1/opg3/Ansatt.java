@@ -74,4 +74,5 @@ public class Ansatt {
 		return "Opg3Ansatt [fornavn=" + fornavn + ", etternavn=" + etternavn + ", kjønn= " + kjønn + ", stilling="
 				+ stilling + ", lønn=" + lønn + "]";
 	}
+	
 }
