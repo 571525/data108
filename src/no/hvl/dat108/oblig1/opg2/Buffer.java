@@ -1,7 +1,6 @@
 package no.hvl.dat108.oblig1.opg2;
 
 import java.util.LinkedList;
-import java.util.NoSuchElementException;
 
 /**
  * A shared buffer for consumers and producers. The item type is int. The buffer
@@ -24,24 +23,17 @@ public class Buffer {
 	public void add(Integer item) {
 		while (true) {
 			synchronized (this) {
-				// Mens bufferen er full, vent
 				while (buffer.size() == SIZE) {
 					try {
-						System.out.println("bufferen er full");
 						wait();
-					} catch (InterruptedException e) {}
+						System.out.println("FULL");
+					} catch (Exception e) {
+					}
 				}
-				
-				// tilføj element
 				buffer.add(item);
-				
-				// sig til Consumer thread at den skal fortsette
-				notify();
-				
-				//Vent litt med å fortsette. kan sløyfes
 				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {}
+					notify();
+				} catch (Exception e) {}
 				return;
 			}
 		}
@@ -54,27 +46,20 @@ public class Buffer {
 	 */
 	public Integer remove() {
 		while (true) {
-
 			synchronized (this) {
-				
-				// Mens bufferen er tom, vent.
 				while (buffer.size() == 0) {
 					try {
-						System.out.println("bufferen er tom");
 						wait();
-					} catch (InterruptedException e) {}
+						System.out.println("TOM");
+					} catch (Exception e) {
+					}
 				}
-				
-				// fjern neste
+
 				Integer back = buffer.removeFirst();
-				
-				// Start produktionen igen
-				notify();
-				
-				//vent litt med å fortsette. Kan sløyfes
 				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {}
+					notify();
+				} catch (Exception e) {
+				}
 				return back;
 			}
 		}
